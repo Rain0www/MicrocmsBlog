@@ -7,7 +7,14 @@ import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
 
-export default async function BlogPost({ params }: any) {
+// propsの型定義を追加
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function BlogPost({ params }: PageProps) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
