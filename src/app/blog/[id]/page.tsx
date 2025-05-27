@@ -8,6 +8,8 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-dynamic'; // ★ 追加
+
 // カテゴリー型を追加
 type Category = {
   id: string;
@@ -34,6 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: "記事の読み込みに失敗しました",
     };
   }
+}
+
+// ★ 追加
+export async function generateStaticParams() {
+  return [];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
