@@ -10,7 +10,7 @@ export const TableOfContents = () => {
     const elements = Array.from(document.querySelectorAll("h2, h3")).map(
       (elem) => ({
         id: elem.id,
-        text: elem.innerText,
+        text: (elem as HTMLElement).innerText,
         level: elem.tagName,
       })
     );
