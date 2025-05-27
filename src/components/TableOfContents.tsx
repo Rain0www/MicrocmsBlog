@@ -2,9 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 
+// Heading型を追加
+type Heading = {
+  id: string;
+  text: string;
+  level: string;
+};
+
 export const TableOfContents = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [headings, setHeadings] = useState([]);
+  const [headings, setHeadings] = useState<Heading[]>([]); // 型を明示
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("h2, h3")).map(
