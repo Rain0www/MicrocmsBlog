@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPost({ params, searchParams }: Props) {
+export default async function BlogPost({ params, searchParams: _searchParams }: Props) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
