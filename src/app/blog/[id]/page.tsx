@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function BlogPost({ params, searchParams: _searchParams }: Props) {
   try {
     const post = await getPost(params.id);
