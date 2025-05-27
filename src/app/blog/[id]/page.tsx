@@ -7,19 +7,13 @@ import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
 
-type PageProps = {
-  params: {
-    id: string; 
-  };
-};
-
 // カテゴリー型を追加
 type Category = {
   id: string;
   name: string;
 };
 
-export default async function BlogPost({ params }: PageProps) {
+export default async function BlogPost({ params }: { params: { id: string } }) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
