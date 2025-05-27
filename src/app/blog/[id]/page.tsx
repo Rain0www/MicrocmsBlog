@@ -6,7 +6,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
-import type { PageProps } from "next";
+
+type PageProps = { params: { id: string } }; // 追加
 
 export default async function BlogPost({ params }: PageProps) {
   try {
