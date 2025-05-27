@@ -13,6 +13,12 @@ type PageProps = {
   };
 };
 
+// カテゴリー型を追加
+type Category = {
+  id: string;
+  name: string;
+};
+
 export default async function BlogPost({ params }: PageProps) {
   try {
     const post = await getPost(params.id);
@@ -60,7 +66,7 @@ export default async function BlogPost({ params }: PageProps) {
                 </time>
                 {/* カテゴリーのタグを日付の横に移動 */}
                 <div className="flex gap-2">
-                  {categories.contents?.map((category: any) => (
+                  {categories.contents?.map((category: Category) => (
                     <Link
                       key={category.id}
                       href={`/category/${category.id}`}
