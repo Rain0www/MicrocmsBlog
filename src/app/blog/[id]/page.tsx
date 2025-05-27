@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
 
-type PageProps = { params: { id: string } }; // 追加
+export type PageProps = { params: { id: string } };
 
 export default async function BlogPost({ params }: PageProps) {
   try {
