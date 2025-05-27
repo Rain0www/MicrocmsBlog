@@ -73,7 +73,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch {
     notFound();
   }
 }
