@@ -13,7 +13,14 @@ type Category = {
   name: string;
 };
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+// PageProps型を定義
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function BlogPost({ params }: PageProps) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
