@@ -14,6 +14,11 @@ export default async function BlogPost({ params }: PageProps) {
     const post = await getPost(params.id);
     const categories = await getCategory();
 
+    // データが取得できなかった場合はnotFoundを呼ぶ
+    if (!post || !categories) {
+      notFound();
+    }
+
     return (
       <div className="min-h-screen bg-white">
         <NavBar />
@@ -25,11 +30,12 @@ export default async function BlogPost({ params }: PageProps) {
                 {/* タイトルを削除 */}
               </header>
 
+              {/* サムネイル画像の存在チェック */}
               {post.thumbnail?.url && (
                 <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden ">
                   <Image
                     src={post.thumbnail.url}
-                    alt={post.title}
+                    alt={post.title || ""}
                     fill
                     className="object-cover"
                     priority
@@ -43,13 +49,14 @@ export default async function BlogPost({ params }: PageProps) {
 
               <div className="flex gap-4 text-gray-600 text-sm mb-8">
                 <time>
-                  {format(new Date(post.publishedAt), "yyyy年MM月dd日", {
-                    locale: ja,
-                  })}
+                  {/* publishedAtの存在チェック */}
+                  {post.publishedAt
+                    ? format(new Date(post.publishedAt), "yyyy年MM月dd日", { locale: ja })
+                    : ""}
                 </time>
                 {/* カテゴリーのタグを日付の横に移動 */}
                 <div className="flex gap-2">
-                  {categories.contents.map((category) => (
+                  {categories.contents?.map((category: any) => (
                     <Link
                       key={category.id}
                       href={`/category/${category.id}`}
@@ -63,7 +70,7 @@ export default async function BlogPost({ params }: PageProps) {
 
               <div
                 className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-strong:text-gray-900 prose-code:text-gray-900 prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-headings:scroll-mt-20 prose-h1:text-4xl prose-h2:!text-3xl prose-h3:text-lg"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: post.content || "" }}
               />
             </div>
           </article>
