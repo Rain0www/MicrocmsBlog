@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
+import type { Metadata } from "next";
 
 // カテゴリー型を追加
 type Category = {
@@ -13,7 +14,29 @@ type Category = {
   name: string;
 };
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+// Props型を追加
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// generateMetadataを追加
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const post = await getPost(params.id);
+    return {
+      title: post?.title || "ブログ記事",
+      description: post?.content?.substring(0, 100) || "ブログ記事詳細",
+    };
+  } catch {
+    return {
+      title: "エラー",
+      description: "記事の読み込みに失敗しました",
+    };
+  }
+}
+
+export default async function BlogPost({ params, searchParams }: Props) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
