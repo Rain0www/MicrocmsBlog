@@ -6,8 +6,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TableOfContents } from "@/components/TableOfContents";
 import { NavBar } from "@/components/NavBar";
+import type { PageProps } from "next";
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+export default async function BlogPost({ params }: PageProps) {
   try {
     const post = await getPost(params.id);
     const categories = await getCategory();
