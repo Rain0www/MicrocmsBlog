@@ -80,7 +80,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
 
               <h1
                 id="heading1"
-                className="font-bold text-gray-900 mb-4 text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight"
+                className="font-bold text-gray-900 mb-4 text-left text-2xl sm:text-3xl md:text-3xl lg:text-4xl leading-tight"
               >
                 {post.title}
               </h1>
@@ -111,7 +111,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                   prose
                   prose-base
                   sm:prose-lg
-                  md:prose-xl
+                  md:prose-base
                   max-w-none
                   prose-headings:text-gray-900
                   prose-p:text-gray-700
@@ -121,9 +121,9 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                   prose-pre:bg-gray-100
                   prose-pre:text-gray-900
                   prose-headings:scroll-mt-20
-                  prose-h1:text-2xl sm:prose-h1:text-3xl md:prose-h1:text-4xl lg:prose-h1:text-5xl
-                  prose-h2:text-xl sm:prose-h2:text-2xl md:prose-h2:text-3xl
-                  prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-2xl
+                  prose-h1:text-2xl sm:prose-h1:text-3xl md:prose-h1:text-3xl lg:prose-h1:text-4xl
+                  prose-h2:text-xl sm:prose-h2:text-2xl md:prose-h2:text-2xl
+                  prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-xl
                 "
                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
               />
