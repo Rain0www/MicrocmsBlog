@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { TableOfContents } from "./TableOfContents";
+import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,9 +49,12 @@ export const NavBar = () => {
         </div> */}
         <nav className="lg:flex items-center">
           <ul className="flex flex-col lg:flex-row gap-4">
-            <li className="lg:hidden">
-              <TableOfContents />
-            </li>
+            {/* "/"（メインページ）以外でのみ目次を表示 */}
+            {pathname !== "/" && (
+              <li className="lg:hidden">
+                <TableOfContents />
+              </li>
+            )}
           </ul>
         </nav>
       </div>
