@@ -57,10 +57,10 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
     return (
       <div className="min-h-screen bg-white">
         <NavBar />
-        <div className="max-w-screen-xl mx-auto px-4 py-13 flex gap-12">
+        <div className="max-w-screen-xl mx-auto px-2 py-8 flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* メインコンテンツ */}
           <article className="flex-1 bg-white rounded-lg">
-            <div className="max-w-3xl mx-auto px-8">
+            <div className="max-w-3xl mx-auto px-2 sm:px-4 md:px-8">
               <header className="mb-0">
                 {/* タイトルを削除 */}
               </header>
@@ -78,11 +78,14 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                 </div>
               )}
 
-              <h1 id="heading1" className="text-4xl font-bold text-gray-900 mb-4 text-left">
+              <h1
+                id="heading1"
+                className="font-bold text-gray-900 mb-4 text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight"
+              >
                 {post.title}
               </h1>
 
-              <div className="flex gap-4 text-gray-600 text-sm mb-8">
+              <div className="flex flex-wrap gap-2 sm:gap-4 text-gray-600 text-xs sm:text-sm md:text-base mb-8">
                 <time>
                   {/* publishedAtの存在チェック */}
                   {post.publishedAt
@@ -95,7 +98,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                     <Link
                       key={category.id}
                       href={`/category/${category.id}`}
-                      className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+                      className="bg-blue-100 text-blue-800 text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded"
                     >
                       {category.name}
                     </Link>
@@ -104,14 +107,31 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
               </div>
 
               <div
-                className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-strong:text-gray-900 prose-code:text-gray-900 prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-headings:scroll-mt-20 prose-h1:text-4xl prose-h2:!text-3xl prose-h3:text-lg"
+                className="
+                  prose
+                  prose-base
+                  sm:prose-lg
+                  md:prose-xl
+                  max-w-none
+                  prose-headings:text-gray-900
+                  prose-p:text-gray-700
+                  prose-a:text-blue-600
+                  prose-strong:text-gray-900
+                  prose-code:text-gray-900
+                  prose-pre:bg-gray-100
+                  prose-pre:text-gray-900
+                  prose-headings:scroll-mt-20
+                  prose-h1:text-2xl sm:prose-h1:text-3xl md:prose-h1:text-4xl lg:prose-h1:text-5xl
+                  prose-h2:text-xl sm:prose-h2:text-2xl md:prose-h2:text-3xl
+                  prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-2xl
+                "
                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
               />
             </div>
           </article>
 
           {/* サイドバー */}
-          <aside className="hidden lg:block w-80">
+          <aside className="hidden lg:block lg:w-80 w-full">
             <TableOfContents />
           </aside>
         </div>
