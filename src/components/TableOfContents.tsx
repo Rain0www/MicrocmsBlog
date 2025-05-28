@@ -31,7 +31,7 @@ export const TableOfContents = () => {
   return (
     <>
       <button
-        className="fixed top-4 right-4 lg:hidden text-sm font-bold bg-white text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
+        className="fixed top-4 right-4 lg:hidden text-base font-bold bg-white text-gray-700 px-5 py-3 rounded hover:bg-gray-300 transition duration-300 shadow-md"
         onClick={toggleModal}
       >
         目次
