@@ -33,14 +33,29 @@ export const NavBar = () => {
 
   return (
     <header className={`bg-white shadow-sm ${isSticky ? "sticky top-0 z-50" : ""}`}>
-      <div className="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div
+        className="
+          max-w-screen-xl mx-auto
+          px-2 py-2
+          sm:px-4 sm:py-4
+          flex justify-between items-center
+        "
+      >
         <div className="flex items-center">
-          <button onClick={toggleMenu} className="lg:hidden mr-4">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <button onClick={toggleMenu} className="lg:hidden mr-2 sm:mr-4">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </button>
-          <Link href="/" className="text-xl font-bold">
+          <Link
+            href="/"
+            className="
+              font-bold
+              text-lg sm:text-xl
+              leading-tight
+              tracking-tight
+            "
+          >
             KnowldB
           </Link>
         </div>
@@ -48,7 +63,7 @@ export const NavBar = () => {
           <input type="text" placeholder="検索" className="w-1/2 px-2 py-1 border rounded-md" />
         </div> */}
         <nav className="lg:flex items-center">
-          <ul className="flex flex-col lg:flex-row gap-4">
+          <ul className="flex flex-col lg:flex-row gap-3 sm:gap-4">
             {/* "/"（メインページ）以外でのみ目次を表示 */}
             {pathname !== "/" && (
               <li className="lg:hidden">
