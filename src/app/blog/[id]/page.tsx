@@ -122,7 +122,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                   prose-pre:text-gray-900
                   prose-headings:scroll-mt-20
                   prose-h1:text-2xl sm:prose-h1:text-3xl md:prose-h1:text-3xl lg:prose-h1:text-4xl
-                  prose-h2:text-xl sm:prose-h2:text-2xl md:prose-h2:text-2xl
+                  prose-h2:text-xs sm:prose-h2:text-2xl md:prose-h2:text-2xl
                   prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-xl
                 "
                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
