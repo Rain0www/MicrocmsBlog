@@ -110,6 +110,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                 className="
                   prose 
                   md:prose-lg
+                  prose-sm
                   max-w-none
                   prose-headings:text-gray-900
                   prose-p:text-gray-700
