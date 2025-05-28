@@ -41,7 +41,7 @@ export const NavBar = () => {
             </svg>
           </button>
           <Link href="/" className="text-xl font-bold">
-            マネー部
+            knowledgeblog
           </Link>
         </div>
         {/* <div className="flex-1 mx-4">
