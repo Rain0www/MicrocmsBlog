@@ -85,7 +85,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                 {post.title}
               </h1>
 
-              <div className="flex flex-wrap gap-2 sm:gap-4 text-gray-600 text-xs sm:text-sm md:text-base mb-8">
+              <div className="flex flex-wrap gap-2 sm:gap-4 text-gray-600 text-sm md:text-base mb-8">
                 <time>
                   {/* publishedAtの存在チェック */}
                   {post.publishedAt
@@ -98,7 +98,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                     <Link
                       key={category.id}
                       href={`/category/${category.id}`}
-                      className="bg-blue-100 text-blue-800 text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded"
+                      className="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded"
                     >
                       {category.name}
                     </Link>
@@ -108,10 +108,8 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
 
               <div
                 className="
-                  prose
-                  prose-base
-                  sm:prose-lg
-                  md:prose-base
+                  prose 
+                  md:prose-lg
                   max-w-none
                   prose-headings:text-gray-900
                   prose-p:text-gray-700
@@ -122,7 +120,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
                   prose-pre:text-gray-900
                   prose-headings:scroll-mt-20
                   prose-h1:text-2xl sm:prose-h1:text-3xl md:prose-h1:text-3xl lg:prose-h1:text-4xl
-                  prose-h2:text-xs sm:prose-h2:text-2xl md:prose-h2:text-2xl
+                  prose-h2:text-xl sm:prose-h2:text-2xl
                   prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-xl
                 "
                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
