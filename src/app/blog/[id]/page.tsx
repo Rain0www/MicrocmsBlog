@@ -81,6 +81,7 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
               <h1
                 id="heading1"
                 className="font-bold text-gray-900 mb-4 text-left text-2xl sm:text-3xl md:text-3xl lg:text-4xl leading-tight"
+                className="font-bold text-gray-900 mb-4 text-left text-2xl sm:text-3xl md:text-3xl lg:text-4xl leading-snug"
               >
                 {post.title}
               </h1>
@@ -108,8 +109,8 @@ export default async function BlogPost({ params, searchParams: _searchParams }: 
 
               <div
                 className="
-                  prose 
-                  md:prose-lg
+                  prose
+                  sm:prose-lg
                   max-w-none
                   prose-headings:text-gray-900
                   prose-p:text-gray-700
