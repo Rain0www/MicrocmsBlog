@@ -12,7 +12,10 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#ffffff]">
-      <NavBar />
+      {/* NavBarをスマホでは非表示に */}
+      <div className="hidden sm:block">
+        <NavBar />
+      </div>
       <div className="container mx-auto px-4 py-8">
         {/* <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-black mb-4">マネー部</h1>
